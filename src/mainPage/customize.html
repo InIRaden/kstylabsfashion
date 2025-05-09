@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>K-StyLabs</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+  <!-- SwiperJS CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../public/css/customize.css" />
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <a href="/src/mainPage/landingPage.html"><div class="logo">K-<span>StyLabs</span></div></a>
+      <div class="search-container">
+        <div class="search-bar">
+          <input type="text" placeholder="Search your own style" />
+        </div>
+        <!-- <div class="top_bar">
+          <a href="#">Home</a>
+          <a href="#">About</a>
+        </div> -->
+        <div class="icons">
+          <i class="fa-regular fa-user" onclick="window.location.href='#home'"></i>
+          <i class="fa-regular fa-heart" onclick="window.location.href='../mainPage/Favorite.html'"></i>
+        </div>
+      </div>
+    </header>
+
+    <nav>
+      <a href="../mainPage/landingPage.html">Korean Clothes</a>
+      <a href="../blog/blog.html">Fashion Tips</a>
+      <a href="../mainPage/customize.html">Customize</a>
+    </nav>
+
+    <!-- KOREAN CLOTHES -->
+
+    <main>
+      <aside>
+        <div class="categories">
+          <button class="category-btn active" data-category="all">All</button>
+          <button class="category-btn" data-category="tops">Tops</button>
+          <button class="category-btn" data-category="shirt">Shirt</button>
+          <button class="category-btn" data-category="pants">Pants</button>
+          <button class="category-btn" data-category="shoes">Shoes</button>
+        </div>
+        <div class="image-list">  
+          <img src="../public/img/images (3).jpeg" alt="Outfit 1" draggable="true" data-type="tops"/>
+          <img src="../public/img/images (1).jpeg" alt="Outfit 2" draggable="true" data-type="Shirt"/>
+          <img src="../public/img/images (10).jpeg" alt="Outfit 3" draggable="true" data-type="pants"/>
+          <img src="../public/img/images (7).jpeg" alt="Outfit 4" draggable="true" data-type="tops"/>
+          <img src="../public/img/images (8).jpeg" alt="Outfit 5" draggable="true" data-type="shoes"/>
+          <img src="../public/img/images (12).jpeg" alt="Outfit 6" draggable="true" data-type="shoes"/>
+          <img src="../public/img/images (9).jpeg" alt="Outfit 7" draggable="true" data-type="shirt"/>
+          <img src="../public/img/images (3).jpeg" alt="Outfit 8" draggable="true" data-type="tops"/>
+        </div>
+      </aside>
+
+      <section class="preview">
+        <div class="drop-zones">
+          <div class="drop-zone" data-type="tops">
+            <p>Drop Tops Here</p>
+            <button class="remove-btn" data-target="tops">Remove</button>
+          </div>
+          <div class="drop-zone" data-type="shirt">
+            <p>Drop shirt Here</p>
+            <button class="remove-btn" data-target="shirt">Remove</button>
+          </div>
+          <div class="drop-zone" data-type="pants">
+            <p>Drop pants Here</p>
+            <button class="remove-btn" data-target="pants">Remove</button>
+          </div>
+          <div class="drop-zone" data-type="Shoes">
+            <p>Drop Shoes Here</p>
+            <button class="remove-btn" data-target="Shoes">Remove</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- RECOMMENDED -->
+
+    <h2 style="display: flex; justify-content: center; margin-top: 9rem ; font-size: 2.5rem;">What's Hot This Week!</h2>
+
+        <div class="carousel">
+            <button id="prev"><i class="fas fa-chevron-left"></i></button>
+            <div class="cards-container">
+                <div class="card">
+                    <img src="../public/img/images (7).jpeg" alt="Product">
+                    <div class="card-content">
+                        <h2>Mint Ruched Hoodie Long Sleeve Tee</h2>
+                        <p>US$30.52</p>
+                        <i class="far fa-heart favorite"></i>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="../public/img/images (10).jpeg" alt="Product">
+                    <div class="card-content">
+
+                        <h2>Mint Ruched Hoodie Long Sleeve Tee</h2>
+                        <p>US$30.52</p>
+                        <i class="far fa-heart favorite"></i>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="../public/img/images (2).jpeg" alt="Product">
+                    <div class="card-content">
+
+                        <h2>Mint Ruched Hoodie Long Sleeve Tee</h2>
+                        <p>US$30.52</p>
+                        <i class="far fa-heart favorite"></i>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="../public/img/images (7).jpeg" alt="Product">
+                    <div class="card-content">
+
+                        <h2>Mint Ruched Hoodie Long Sleeve Tee</h2>
+                        <p>US$30.52</p>
+                        <i class="far fa-heart favorite"></i>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="../public/img/images (8).jpeg" alt="Product">
+                    <div class="card-content">
+
+                        <h2>Mint Ruched Hoodie Long Sleeve Tee</h2>
+                        <p>US$30.52</p>
+                        <i class="far fa-heart favorite"></i>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="../public/img/images (5).jpeg" alt="Product">
+                    <div class="card-content">
+                        <h2>Mint Ruched Hoodie Long Sleeve Tee</h2>
+                        <p>US$30.52</p>
+                        <i class="far fa-heart favorite"></i>
+                    </div>
+                </div>
+            </div>
+            <button id="next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        
+       
+    </div>
+
+
+    <!-- Find your favorite KPOP IDOL outfit -->
+
+    <section class="info">
+      <div class="info-image">
+        <img src="../public/img/images (12).jpeg" alt="KPOP Fashion" />
+      </div>
+      <div class="info-text">
+        <h3>Find your favorite KPOP IDOL outfit:</h3>
+        <p>
+          Your Ultimate Guide to K-pop Fansign Events - Online and Offline
+        </p>
+        <p>
+          Whether you're a seasoned fan or just starting out, this guide will
+          walk you through everything you need to know about joining online
+          and offline fansign events in Korea.
+        </p>
+        <button class="find-out">Find Out Now</button>
+      </div>
+    </section>
+
+    <!-- What’s Hot This Week! -->
+   
+
+    <!-- section footer -->
+    <section class="footer">
+      <div class="footer-container">
+        <div class="footer-left">
+          <div class="logo">K-StyLabs</div>
+          <p>Let's Create A Custom Photo Session Just For You.</p>
+          <ul>
+            <li><a href="#">Data Privacy</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Impressum</a></li>
+            <li><a href="#">Product</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-middle">
+          <div class="address">
+            <h4>Address</h4>
+            <p>1901 Thornridge Cir. Shiloh, Hawaii 81063</p>
+          </div>
+          <div class="address">
+            <h4>Address</h4>
+            <p>1901 Thornridge Cir. Shiloh, Hawaii 81063</p>
+          </div>
+        </div>
+
+        <div class="footer-right">
+          <div class="contact">
+            <h4>Phone</h4>
+            <p>(704) 555-0127</p>
+          </div>
+          <div class="contact">
+            <h4>Email</h4>
+            <p>georgia.young@gmail.com</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p> Cherish Your Special Day With Stunning, Candid Shots That Capture The Love And Joy. </p>
+        <div class="social-icons">
+          <a href="#" class="icon"><i class="fa-brands fa-discord"></i></a>
+          <a href="#" class="icon"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="../public/js/customize.js"></script>
+  <!-- At the bottom of the body tag, before closing -->
+  <script src="../public/js/favorites.js"></script>
+  </body>
+</html>
