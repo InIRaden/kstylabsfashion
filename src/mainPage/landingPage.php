@@ -1,5 +1,30 @@
 <?php
-// Anda bisa menambahkan kode PHP di sini jika diperlukan
+// Data untuk produk yang ditampilkan di carousel
+$products = [
+    ['image' => '../public/img/images (7).jpeg', 'title' => 'Mint Ruched Hoodie Long Sleeve Tee', 'price' => 'US$30.52'],
+    ['image' => '../public/img/images (10).jpeg', 'title' => 'Oversized Korean Cardigan', 'price' => 'US$45.99'],
+    ['image' => '../public/img/images (2).jpeg', 'title' => 'Casual Korean Style Pants', 'price' => 'US$38.75'],
+    ['image' => '../public/img/images (7).jpeg', 'title' => 'Stylish Korean Hoodie', 'price' => 'US$32.50'],
+    ['image' => '../public/img/images (8).jpeg', 'title' => 'Modern Korean Outfit Set', 'price' => 'US$55.25'],
+    ['image' => '../public/img/images (5).jpeg', 'title' => 'Trendy Korean Fashion Top', 'price' => 'US$28.99']
+];
+
+// Data untuk tampilan Korean Look
+$koreanLooks = [
+    ['image' => '../public/img/images (6).jpeg', 'alt' => 'Korean Look 1'],
+    ['image' => '../public/img/images (12).jpeg', 'alt' => 'Korean Look 2'],
+    ['image' => '../public/img/images (5).jpeg', 'alt' => 'Korean Look 3'],
+    ['image' => '../public/img/images (8).jpeg', 'alt' => 'Korean Look 4'],
+    ['image' => '../public/img/images (10).jpeg', 'alt' => 'Korean Look 5'],
+    ['image' => '../public/img/images (7).jpeg', 'alt' => 'Korean Look 6']
+];
+
+// Data kontak dan informasi perusahaan
+$companyInfo = [
+    'address' => '1901 Thornridge Cir. Shiloh, Hawaii 81063',
+    'phone' => '(704) 555-0127',
+    'email' => 'georgia.young@gmail.com'
+];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,7 +37,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">    
-    <link rel="stylesheet" href="landingpage.css">
+    <link rel="stylesheet" href="../public/css/landingpage.css">
     
 </head>
 <body>
@@ -33,9 +58,9 @@
     </header>
     
     <nav>
-        <a href="#">Korean Clothes</a>
+        <a href="landingPage.php">Korean Clothes</a>
         <a href="../blog/blog.php">Fashion Tips</a>
-        <a href="/src/mainPage/customize.php">Customize</a>
+        <a href="customize.php">Customize</a>
     </nav>
 
     <div class="content">
@@ -51,16 +76,12 @@
             </div>
         </div>
         
-
-        
         <div class="image-container">
             <img class="image-1" src="../public/img/images (10).jpeg" 
                  alt="A woman with dark hair and red lipstick, wearing a gold outfit and earrings">
-            <img  class ='image-2'src="../public/img/images (4).jpeg" 
+            <img class="image-2" src="../public/img/images (4).jpeg" 
                  alt="A woman with dark hair and red lipstick, wearing a gold outfit and earrings">
         </div>
-
-        
     </div>
 
     <!-- container second  -->
@@ -86,16 +107,7 @@
             <button id="prev"><i class="fas fa-chevron-left"></i></button>
             <div class="cards-container">
                 <?php
-                // Contoh penggunaan PHP untuk menampilkan produk
-                $products = [
-                    ['image' => '../public/img/images (7).jpeg', 'title' => 'Mint Ruched Hoodie Long Sleeve Tee', 'price' => 'US$30.52'],
-                    ['image' => '../public/img/images (10).jpeg', 'title' => 'Mint Ruched Hoodie Long Sleeve Tee', 'price' => 'US$30.52'],
-                    ['image' => '../public/img/images (2).jpeg', 'title' => 'Mint Ruched Hoodie Long Sleeve Tee', 'price' => 'US$30.52'],
-                    ['image' => '../public/img/images (7).jpeg', 'title' => 'Mint Ruched Hoodie Long Sleeve Tee', 'price' => 'US$30.52'],
-                    ['image' => '../public/img/images (8).jpeg', 'title' => 'Mint Ruched Hoodie Long Sleeve Tee', 'price' => 'US$30.52'],
-                    ['image' => '../public/img/images (5).jpeg', 'title' => 'Mint Ruched Hoodie Long Sleeve Tee', 'price' => 'US$30.52']
-                ];
-                
+                // Menampilkan produk dari array yang sudah didefinisikan
                 foreach ($products as $product) {
                     echo '<div class="card">';
                     echo '<img src="' . $product['image'] . '" alt="Product">';
@@ -161,21 +173,12 @@
 
         <div class="item-grid">
             <?php
-            // Contoh penggunaan PHP untuk menampilkan gambar
-            $koreanLooks = [
-                ['image' => '../public/img/images (6).jpeg', 'alt' => 'Korean Look 1'],
-                ['image' => '../public/img/images (12).jpeg', 'alt' => 'Korean Look 2'],
-                ['image' => '../public/img/images (5).jpeg', 'alt' => 'Korean Look 3'],
-                ['image' => '../public/img/images (8).jpeg', 'alt' => 'Korean Look 4'],
-                ['image' => '../public/img/images (10).jpeg', 'alt' => 'Korean Look 5'],
-                ['image' => '../public/img/images (7).jpeg', 'alt' => 'Korean Look 6']
-            ];
-            
+            // Menampilkan gambar dari array yang sudah didefinisikan
             foreach ($koreanLooks as $look) {
                 echo '<div class="item">';
                 echo '<img src="' . $look['image'] . '" alt="' . $look['alt'] . '">';
                 echo '<div class="item-overlay">';
-                echo '<button class="btn">See Products</button>';
+                echo '<button class="btn" onclick="window.location.href=\'customize.php\'">See Products</button>';
                 echo '</div>';
                 echo '</div>';
             }
@@ -183,7 +186,7 @@
         </div>
 
         <div class="all-products">
-            <button>All Products</button>
+            <button onclick="window.location.href='customize.php'">All Products</button>
         </div>
     </div>
 
@@ -199,29 +202,29 @@
                     <li><a href="#">Data Privacy</a></li>
                     <li><a href="#">Privacy Policy</a></li>
                     <li><a href="#">Impressum</a></li>
-                    <li><a href="#">Product</a></li>
+                    <li><a href="customize.php">Product</a></li>
                 </ul>
             </div>
     
             <div class="footer-middle">
                 <div class="address">
                     <h4>Address</h4>
-                    <p>1901 Thornridge Cir. Shiloh, Hawaii 81063</p>
+                    <p><?php echo $companyInfo['address']; ?></p>
                 </div>
                 <div class="address">
                     <h4>Address</h4>
-                    <p>1901 Thornridge Cir. Shiloh, Hawaii 81063</p>
+                    <p><?php echo $companyInfo['address']; ?></p>
                 </div>
             </div>
     
             <div class="footer-right">
                 <div class="contact">
                     <h4>Phone</h4>
-                    <p>(704) 555-0127</p>
+                    <p><?php echo $companyInfo['phone']; ?></p>
                 </div>
                 <div class="contact">
                     <h4>Email</h4>
-                    <p>georgia.young@gmail.com</p>
+                    <p><?php echo $companyInfo['email']; ?></p>
                 </div>
             </div>
         </div>
@@ -241,46 +244,7 @@
 </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script>
-   document.addEventListener('DOMContentLoaded', function()  { 
-     const prev = document.querySelector('#prev');
-     const next = document.querySelector('#next');
-     const cardsContainer = document.querySelector('.cards-container');
-
-     let scrollAmount = 0;
-     let cardWidth = cardsContainer.querySelector('.card').offsetWidth + 16;
-     next.addEventListener('click', () => {
-         cardsContainer.scrollBy({
-             left: cardWidth,
-             behavior: 'smooth'
-         })
-     })
-     prev.addEventListener('click', () => {
-         cardsContainer.scrollBy({
-             left: -cardWidth,
-             behavior: 'smooth'
-         })
-         })
-
-   })
-
-
-//    animasi scroll
-document.addEventListener("DOMContentLoaded", () => {
-  const elements = document.querySelectorAll(".container");
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("show");
-        observer.unobserve(entry.target); 
-      }
-    });
-  }, { threshold: 0.2 });
-
-  elements.forEach((el) => observer.observe(el));
-});
-</script>
+<script src="../public/js/landingPage.js"></script>
 <script src="../public/js/favorites.js"></script>
 </body>
 </html>
