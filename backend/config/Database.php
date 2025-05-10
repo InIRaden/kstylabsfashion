@@ -1,11 +1,12 @@
 <?php
 
-$host   = 'localhost';
-$db     = 'kstylabs';
-$user   = 'root';
-$pass   = '';
+$host = 'localhost';
+$db = 'kstylabs';
+$user = 'root';
+$pass = '';
 
-$connect    = mysqli_connect($host, $user, $pass, $db);
-if ($connect->connect_error) {
-    die("Connection failed: " . $connect->connect_error);
+// Pakai cara yang benar untuk cek error
+$connect = mysqli_connect($host, $user, $pass, $db);
+if (!$connect) {
+    die("Connection failed: " . mysqli_connect_error());
 }

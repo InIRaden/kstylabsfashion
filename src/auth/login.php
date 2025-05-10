@@ -1,37 +1,36 @@
 <?php
 session_start();
+if (isset($_SESSION['adminName'])) {
+  header("Location: ../mainPage/landingPage.php");
+  exit();
+}
 include("../../backend/config/Database.php");
 
 $email = "";
 $password = "";
 $err = "";
-
-// koneksi
-$db = new Database();
-$connect = $db->getConnection();
-
-if (isset($_POST['submit'])) {
-  $email = mysqli_real_escape_string($connect, $_POST['email']);
-  $password = $_POST['password'];
-
-  $query = "SELECT * FROM users WHERE email = '$email'";
-  $result = mysqli_query($connect, $query);
-
-  if ($result && mysqli_num_rows($result) > 0) {
-    $user = mysqli_fetch_assoc($result);
-    if ($user['password'] === md5($password)) {
-      $_SESSION['email'] = $user['email'];
-      header("Location: ../mainPage/landingPage.php");
-      exit();
-    } else {
-      $err = "Password salah.";
+if(isset($_POST['submit'])) {
+  $email  = $_POST['email'];
+  $password  = $_POST['password'];
+  if($email == '' or $password == '') {
+    $err = "Please fill in all fields";
+  } 
+  if(empty($err)) {
+    $sql1 = "SELECT * FROM users WHERE email = '$email'";
+    $q1 = mysqli_query($connect, $sql1);
+    $r1 = mysqli_fetch_array($q1);
+    if($r1['password'] != md5($password)) {
+      $err = "Invalid email or password";
     }
-  } else {
-    $err = "Email tidak ditemukan.";
+  }
+  if(empty($err)) {
+    $_SESSION['adminName'] = $email;
+    header("Location: ../mainPage/landingPage.php");
+    exit();
   }
 }
-?>
 
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -79,6 +78,7 @@ if (isset($_POST['submit'])) {
             <input
               type="email"
               value="<?php echo $email; ?>"
+              name="email"
               id="email"
               placeholder="yourgmail@gmail.com"
               required />
@@ -88,7 +88,7 @@ if (isset($_POST['submit'])) {
             <label for="password">Password</label>
             <input
               type="password"
-              value="<?php echo $password; ?>"
+              name="password"
               id="password"
               placeholder="******"
               required />
