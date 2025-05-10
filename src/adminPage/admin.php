@@ -1,3 +1,28 @@
+<?php
+include("../../backend/config/Database.php");
+include("../../backend/controllers/AdminController.php");
+
+$name = "";
+$category = "";
+
+if (isset($_POST['submit'])) {
+    $name = $_POST['name'];
+    $category = $_POST['category'];
+
+    if ($name && $category) {
+        $sql = "INSERT INTO items (name, category) VALUES ('$name', '$category')";
+        $q = mysqli_query($connect, $sql);
+        if ($q) {
+            echo "<script>alert('Data berhasil ditambahkan');</script>";
+        } else {
+            echo "<script>alert('Gagal menambahkan data');</script>";
+        }
+    } else {
+        echo "<script>alert('Silakan isi semua kolom');</script>";
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,10 +31,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>K-StyLabs</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
-    <!-- SwiperJS CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../public/css/admin.css" />
 </head>
 
@@ -34,8 +56,6 @@
             <a href="../mainPage/customize.html">Customize</a>
         </nav>
 
-        <!-- Halaman Admin -->
-
         <!-- Tombol Tambah -->
         <button class="btn tambah" onclick="openModal()">+ Tambah Data</button>
 
@@ -44,12 +64,10 @@
             <div class="modal-content">
                 <span class="close" onclick="closeModal()">&times;</span>
                 <h2>Tambah Style</h2>
-                <form id="formTambah">
-                    <input type="text" id="model" placeholder="Nama Model" required />
-                    <input type="text" id="negara" placeholder="Dari Negara" required />
-                    <input type="text" id="style" placeholder="Jenis Style" required />
-                    <input type="text" id="cuaca" placeholder="Cuaca" required />
-                    <button type="submit" class="btn tambah">Simpan</button>
+                <form id="formTambah" method="post">
+                    <input type="text" name="name" value="<?php echo $name ?>" placeholder="Nama Pakaian" required />
+                    <input type="text" name="category" value="<?php echo $category ?>" placeholder="Kategori" required />
+                    <button type="submit" name="submit" class="btn tambah">Simpan</button>
                 </form>
             </div>
         </div>
@@ -61,20 +79,34 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Nama Model</th>
-                            <th>Dari Negara</th>
-                            <th>Jenis Style</th>
-                            <th>Cuaca</th>
+                            <th>Nama Pakaian</th>
+                            <th>Kategori Style</th>
                             <th>Tindakan</th>
                         </tr>
                     </thead>
                     <tbody id="tableBody">
+                        <?php
+                        $no = 1;
+                        $result = mysqli_query($connect, "SELECT * FROM items ORDER BY created_at DESC");
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            echo "<tr>";
+                            echo "<td>{$no}</td>";
+                            echo "<td>" . htmlspecialchars($row['name']) . "</td>";
+                            echo "<td>" . htmlspecialchars($row['category']) . "</td>";
+                            echo "<td>
+                            <button class='btn'>Edit</button>
+                            <button class='btn'>Hapus</button>
+                            </td>";
+                            echo "</tr>";
+                            $no++;
+                        }
+                        ?>
                     </tbody>
                 </table>
             </main>
         </div>
 
-        <!-- section footer -->
+        <!-- Footer -->
         <section class="footer">
             <div class="footer-container">
                 <div class="footer-left">
@@ -112,7 +144,7 @@
             </div>
 
             <div class="footer-bottom">
-                <p> Cherish Your Special Day With Stunning, Candid Shots That Capture The Love And Joy. </p>
+                <p>Cherish Your Special Day With Stunning, Candid Shots That Capture The Love And Joy.</p>
                 <div class="social-icons">
                     <a href="#" class="icon"><i class="fa-brands fa-discord"></i></a>
                     <a href="#" class="icon"><i class="fa-brands fa-instagram"></i></a>
@@ -123,7 +155,6 @@
     </div>
 
     <script src="../public/js/admin.js"></script>
-
 </body>
 
 </html>

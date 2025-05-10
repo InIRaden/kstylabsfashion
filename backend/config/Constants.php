@@ -3,7 +3,7 @@
 define('DB_HOST', 'localhost');      // Alamat server database
 define('DB_USER', 'root');           // Username untuk akses database
 define('DB_PASS', '');               // Password untuk akses database
-define('DB_NAME', 'k_stylabs');      // Nama database yang digunakan
+define('DB_NAME', 'kstylabs');      // Nama database yang digunakan
 
 // Direktori Penyimpanan File - Lokasi untuk file yang diunggah
 define('UPLOAD_BLOG_DIR', '../uploads/blog/');     // Folder untuk gambar blog

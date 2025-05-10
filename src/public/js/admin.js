@@ -12,22 +12,17 @@ function closeModal() {
 
 // Tambahkan data ke tabel saat submit
 document.getElementById("formTambah").addEventListener("submit", function (e) {
-    e.preventDefault();
 
-    const model = document.getElementById("model").value;
-    const negara = document.getElementById("negara").value;
-    const style = document.getElementById("style").value;
-    const cuaca = document.getElementById("cuaca").value;
+    const nama = document.getElementById("nama").value;
+    const negara = document.getElementById("kategori").value;
 
     const tableBody = document.getElementById("tableBody");
     const row = document.createElement("tr");
 
     row.innerHTML = `
       <td>${++counter}</td>
-      <td>${model}</td>
-      <td>${negara}</td>
-      <td>${style}</td>
-      <td>${cuaca}</td>
+      <td>${nama}</td>
+      <td>${kategori}</td>
       <td>
         <button class="btn edit" onclick="editRow(this)">Edit</button>
         <button class="btn delete" onclick="deleteRow(this)">Hapus</button>
